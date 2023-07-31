@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.md": "markdown",
+        "type_traits": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
+    }
+}

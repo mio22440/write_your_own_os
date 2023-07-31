@@ -1,0 +1,418 @@
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 obj/gdt.o
+ .comment       0x0000000000000000       0x2a obj/gdt.o
+ .group         0x0000000000000000        0xc obj/drivers/driver.o
+ .group         0x0000000000000000        0x8 obj/drivers/driver.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/drivers/driver.o
+ .comment       0x0000000000000000       0x2a obj/drivers/driver.o
+ .group         0x0000000000000000        0xc obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0xc obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0xc obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0xc obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0x8 obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0x8 obj/hardwarecommunication/port.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/hardwarecommunication/port.o
+ .comment       0x0000000000000000       0x2a obj/hardwarecommunication/port.o
+ .group         0x0000000000000000        0xc obj/hardwarecommunication/interrupts.o
+ .group         0x0000000000000000        0x8 obj/hardwarecommunication/interrupts.o
+ .group         0x0000000000000000        0x8 obj/hardwarecommunication/interrupts.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/hardwarecommunication/interrupts.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 obj/hardwarecommunication/interrupts.o
+ .comment       0x0000000000000000       0x2a obj/hardwarecommunication/interrupts.o
+ .group         0x0000000000000000        0xc obj/drivers/keyboard.o
+ .group         0x0000000000000000        0xc obj/drivers/keyboard.o
+ .group         0x0000000000000000        0x8 obj/drivers/keyboard.o
+ .group         0x0000000000000000        0x8 obj/drivers/keyboard.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/drivers/keyboard.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 obj/drivers/keyboard.o
+ .comment       0x0000000000000000       0x2a obj/drivers/keyboard.o
+ .group         0x0000000000000000        0xc obj/drivers/mouse.o
+ .group         0x0000000000000000        0xc obj/drivers/mouse.o
+ .group         0x0000000000000000        0x8 obj/drivers/mouse.o
+ .group         0x0000000000000000        0x8 obj/drivers/mouse.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/drivers/mouse.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 obj/drivers/mouse.o
+ .comment       0x0000000000000000       0x2a obj/drivers/mouse.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0x8 obj/kernel.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0xc obj/kernel.o
+ .group         0x0000000000000000        0x8 obj/kernel.o
+ .group         0x0000000000000000        0x8 obj/kernel.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 obj/kernel.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 obj/kernel.o
+ .comment       0x0000000000000000       0x2a obj/kernel.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000100000                . = 0x100000
+
+.text           0x0000000000100000     0x261f
+ *(.multiboot)
+ .multiboot     0x0000000000100000        0xc obj/loader.o
+ *(.text*)
+ .text          0x000000000010000c       0x15 obj/loader.o
+                0x000000000010000c                loader
+ *fill*         0x0000000000100021        0x1 
+ .text          0x0000000000100022      0x292 obj/gdt.o
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000b8                GlobalDescriptorTable::DataSegmentSelector()
+                0x00000000001000cc                GlobalDescriptorTable::CodeSegmentSelector()
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001001bc                GlobalDescriptorTable::SegmentDescriptor::Base()
+                0x0000000000100232                GlobalDescriptorTable::SegmentDescriptor::Limit()
+ .text.__x86.get_pc_thunk.ax
+                0x00000000001002b4        0x4 obj/gdt.o
+                0x00000000001002b4                __x86.get_pc_thunk.ax
+ .text          0x00000000001002b8      0x10f obj/drivers/driver.o
+                0x00000000001002b8                myos::drivers::Driver::Driver()
+                0x00000000001002b8                myos::drivers::Driver::Driver()
+                0x00000000001002d4                myos::drivers::Driver::~Driver()
+                0x00000000001002d4                myos::drivers::Driver::~Driver()
+                0x00000000001002f0                myos::drivers::Driver::Activate()
+                0x0000000000100300                myos::drivers::Driver::Reset()
+                0x0000000000100314                myos::drivers::Driver::Deactivate()
+                0x0000000000100324                myos::drivers::DriverManager::DriverManager()
+                0x0000000000100324                myos::drivers::DriverManager::DriverManager()
+                0x0000000000100342                myos::drivers::DriverManager::AddDriver(myos::drivers::Driver*)
+                0x000000000010037a                myos::drivers::DriverManager::ActivateAll()
+ *fill*         0x00000000001003c7        0x1 
+ .text          0x00000000001003c8      0x2fe obj/hardwarecommunication/port.o
+                0x00000000001003c8                myos::hardwarecommunication::Port::Port(unsigned short)
+                0x00000000001003c8                myos::hardwarecommunication::Port::Port(unsigned short)
+                0x00000000001003ec                myos::hardwarecommunication::Port::~Port()
+                0x00000000001003ec                myos::hardwarecommunication::Port::~Port()
+                0x00000000001003fc                myos::hardwarecommunication::Port8bit::Port8bit(unsigned short)
+                0x00000000001003fc                myos::hardwarecommunication::Port8bit::Port8bit(unsigned short)
+                0x0000000000100446                myos::hardwarecommunication::Port8bit::~Port8bit()
+                0x0000000000100446                myos::hardwarecommunication::Port8bit::~Port8bit()
+                0x0000000000100470                myos::hardwarecommunication::Port8bit::Write(unsigned char)
+                0x0000000000100496                myos::hardwarecommunication::Port8bit::Read()
+                0x00000000001004ba                myos::hardwarecommunication::Port8bitSlow::Port8bitSlow(unsigned short)
+                0x00000000001004ba                myos::hardwarecommunication::Port8bitSlow::Port8bitSlow(unsigned short)
+                0x0000000000100500                myos::hardwarecommunication::Port8bitSlow::~Port8bitSlow()
+                0x0000000000100500                myos::hardwarecommunication::Port8bitSlow::~Port8bitSlow()
+                0x0000000000100528                myos::hardwarecommunication::Port8bitSlow::Write(unsigned char)
+                0x0000000000100552                myos::hardwarecommunication::Port16bit::Port16bit(unsigned short)
+                0x0000000000100552                myos::hardwarecommunication::Port16bit::Port16bit(unsigned short)
+                0x000000000010059c                myos::hardwarecommunication::Port16bit::~Port16bit()
+                0x000000000010059c                myos::hardwarecommunication::Port16bit::~Port16bit()
+                0x00000000001005c6                myos::hardwarecommunication::Port16bit::Write(unsigned short)
+                0x00000000001005ee                myos::hardwarecommunication::Port16bit::Read()
+                0x0000000000100614                myos::hardwarecommunication::Port32bit::Port32bit(unsigned short)
+                0x0000000000100614                myos::hardwarecommunication::Port32bit::Port32bit(unsigned short)
+                0x000000000010065e                myos::hardwarecommunication::Port32bit::~Port32bit()
+                0x000000000010065e                myos::hardwarecommunication::Port32bit::~Port32bit()
+                0x0000000000100688                myos::hardwarecommunication::Port32bit::Write(unsigned int)
+                0x00000000001006a4                myos::hardwarecommunication::Port32bit::Read()
+ .text.__x86.get_pc_thunk.bx
+                0x00000000001006c6        0x4 obj/hardwarecommunication/port.o
+                0x00000000001006c6                __x86.get_pc_thunk.bx
+ .text          0x00000000001006ca      0x1b8 obj/hardwarecommunication/interruptstubs.o
+                0x00000000001006ca                myos::hardwarecommunication::InterruptManager::HandleException0x00()
+                0x00000000001006d6                myos::hardwarecommunication::InterruptManager::HandleException0x01()
+                0x00000000001006e2                myos::hardwarecommunication::InterruptManager::HandleException0x02()
+                0x00000000001006ee                myos::hardwarecommunication::InterruptManager::HandleException0x03()
+                0x00000000001006fa                myos::hardwarecommunication::InterruptManager::HandleException0x04()
+                0x0000000000100706                myos::hardwarecommunication::InterruptManager::HandleException0x05()
+                0x0000000000100712                myos::hardwarecommunication::InterruptManager::HandleException0x06()
+                0x000000000010071e                myos::hardwarecommunication::InterruptManager::HandleException0x07()
+                0x000000000010072a                myos::hardwarecommunication::InterruptManager::HandleException0x08()
+                0x0000000000100736                myos::hardwarecommunication::InterruptManager::HandleException0x09()
+                0x0000000000100742                myos::hardwarecommunication::InterruptManager::HandleException0x0A()
+                0x000000000010074e                myos::hardwarecommunication::InterruptManager::HandleException0x0B()
+                0x000000000010075a                myos::hardwarecommunication::InterruptManager::HandleException0x0C()
+                0x0000000000100766                myos::hardwarecommunication::InterruptManager::HandleException0x0D()
+                0x0000000000100772                myos::hardwarecommunication::InterruptManager::HandleException0x0E()
+                0x000000000010077e                myos::hardwarecommunication::InterruptManager::HandleException0x0F()
+                0x000000000010078a                myos::hardwarecommunication::InterruptManager::HandleException0x10()
+                0x0000000000100796                myos::hardwarecommunication::InterruptManager::HandleException0x11()
+                0x00000000001007a2                myos::hardwarecommunication::InterruptManager::HandleException0x12()
+                0x00000000001007ae                myos::hardwarecommunication::InterruptManager::HandleException0x13()
+                0x00000000001007ba                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x00()
+                0x00000000001007c6                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x01()
+                0x00000000001007d2                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x02()
+                0x00000000001007de                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x03()
+                0x00000000001007e7                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x04()
+                0x00000000001007f0                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x05()
+                0x00000000001007f9                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x06()
+                0x0000000000100802                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x07()
+                0x000000000010080b                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x08()
+                0x0000000000100814                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x09()
+                0x000000000010081d                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0A()
+                0x0000000000100826                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0B()
+                0x000000000010082f                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0C()
+                0x0000000000100838                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0D()
+                0x0000000000100841                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0E()
+                0x000000000010084a                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x0F()
+                0x0000000000100853                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x31()
+                0x000000000010085c                myos::hardwarecommunication::InterruptManager::HandleInterruptRequest0x80()
+                0x0000000000100881                myos::hardwarecommunication::InterruptManager::InterruptIgnore()
+ .text          0x0000000000100882      0x94f obj/hardwarecommunication/interrupts.o
+                0x0000000000100882                myos::hardwarecommunication::InterruptHandler::InterruptHandler(unsigned char, myos::hardwarecommunication::InterruptManager*)
+                0x0000000000100882                myos::hardwarecommunication::InterruptHandler::InterruptHandler(unsigned char, myos::hardwarecommunication::InterruptManager*)
+                0x00000000001008c6                myos::hardwarecommunication::InterruptHandler::~InterruptHandler()
+                0x00000000001008c6                myos::hardwarecommunication::InterruptHandler::~InterruptHandler()
+                0x0000000000100910                myos::hardwarecommunication::InterruptHandler::HandleInterrupt(unsigned int)
+                0x0000000000100922                myos::hardwarecommunication::InterruptManager::SetInterruptDescriptorTableEntry(unsigned char, unsigned short, void (*)(), unsigned char, unsigned char)
+                0x00000000001009bc                myos::hardwarecommunication::InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x00000000001009bc                myos::hardwarecommunication::InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x0000000000101006                myos::hardwarecommunication::InterruptManager::~InterruptManager()
+                0x0000000000101006                myos::hardwarecommunication::InterruptManager::~InterruptManager()
+                0x000000000010106e                myos::hardwarecommunication::InterruptManager::Activate()
+                0x00000000001010ac                myos::hardwarecommunication::InterruptManager::Deactivate()
+                0x00000000001010d2                myos::hardwarecommunication::InterruptManager::handleInterrupt(unsigned char, unsigned int)
+                0x0000000000101114                myos::hardwarecommunication::InterruptManager::DoHandleInterrupt(unsigned char, unsigned int)
+ *fill*         0x00000000001011d1        0x1 
+ .text          0x00000000001011d2      0x7c9 obj/drivers/keyboard.o
+                0x00000000001011d2                myos::drivers::KeyboardEventHandler::KeyboardEventHandler()
+                0x00000000001011d2                myos::drivers::KeyboardEventHandler::KeyboardEventHandler()
+                0x00000000001011ee                myos::drivers::KeyboardEventHandler::OnKeyDown(char)
+                0x0000000000101208                myos::drivers::KeyboardEventHandler::OnKeyUp(char)
+                0x0000000000101222                myos::drivers::KeyboardDriver::KeyboardDriver(myos::hardwarecommunication::InterruptManager*, myos::drivers::KeyboardEventHandler*)
+                0x0000000000101222                myos::drivers::KeyboardDriver::KeyboardDriver(myos::hardwarecommunication::InterruptManager*, myos::drivers::KeyboardEventHandler*)
+                0x00000000001012a8                myos::drivers::KeyboardDriver::~KeyboardDriver()
+                0x00000000001012a8                myos::drivers::KeyboardDriver::~KeyboardDriver()
+                0x000000000010131c                myos::drivers::KeyboardDriver::Activate()
+                0x00000000001013f1                non-virtual thunk to myos::drivers::KeyboardDriver::Activate()
+                0x00000000001013fc                myos::drivers::KeyboardDriver::HandleInterrupt(unsigned int)
+ *fill*         0x000000000010199b        0x1 
+ .text          0x000000000010199c      0x3f9 obj/drivers/mouse.o
+                0x000000000010199c                myos::drivers::MouseEventHandler::MouseEventHandler()
+                0x000000000010199c                myos::drivers::MouseEventHandler::MouseEventHandler()
+                0x00000000001019b8                myos::drivers::MouseEventHandler::onActivate()
+                0x00000000001019c8                myos::drivers::MouseEventHandler::OnMouseDown(unsigned char)
+                0x00000000001019e2                myos::drivers::MouseEventHandler::OnMouseUp(unsigned char)
+                0x00000000001019fc                myos::drivers::MouseEventHandler::OnMouseMove(int, int)
+                0x0000000000101a0c                myos::drivers::MouseDriver::MouseDriver(myos::hardwarecommunication::InterruptManager*, myos::drivers::MouseEventHandler*)
+                0x0000000000101a0c                myos::drivers::MouseDriver::MouseDriver(myos::hardwarecommunication::InterruptManager*, myos::drivers::MouseEventHandler*)
+                0x0000000000101a92                myos::drivers::MouseDriver::~MouseDriver()
+                0x0000000000101a92                myos::drivers::MouseDriver::~MouseDriver()
+                0x0000000000101b06                myos::drivers::MouseDriver::Activate()
+                0x0000000000101bda                non-virtual thunk to myos::drivers::MouseDriver::Activate()
+                0x0000000000101be4                myos::drivers::MouseDriver::HandleInterrupt(unsigned int)
+ .text          0x0000000000101d95      0x3d7 obj/kernel.o
+                0x0000000000101d95                printf(char*)
+                0x0000000000101f88                printfHex(unsigned char)
+                0x0000000000101fee                callConstructors
+                0x0000000000102028                kernelMain
+ .text._ZN25PrintfKeybardEventHandler9OnKeyDownEc
+                0x000000000010216c       0x36 obj/kernel.o
+                0x000000000010216c                PrintfKeybardEventHandler::OnKeyDown(char)
+ .text._ZN14MouseToConsoleC2Ev
+                0x00000000001021a2       0x82 obj/kernel.o
+                0x00000000001021a2                MouseToConsole::MouseToConsole()
+                0x00000000001021a2                MouseToConsole::MouseToConsole()
+ .text._ZN14MouseToConsole11OnMouseMoveEii
+                0x0000000000102224      0x246 obj/kernel.o
+                0x0000000000102224                MouseToConsole::OnMouseMove(int, int)
+ .text._ZN25PrintfKeybardEventHandlerC2Ev
+                0x000000000010246a       0x32 obj/kernel.o
+                0x000000000010246a                PrintfKeybardEventHandler::PrintfKeybardEventHandler()
+                0x000000000010246a                PrintfKeybardEventHandler::PrintfKeybardEventHandler()
+ *(.rodata)
+ .rodata        0x000000000010249c       0x17 obj/hardwarecommunication/interrupts.o
+ *fill*         0x00000000001024b3        0x1 
+ .rodata        0x00000000001024b4       0xf4 obj/drivers/keyboard.o
+ .rodata        0x00000000001025a8       0x77 obj/kernel.o
+
+.eh_frame       0x0000000000102620      0x91c
+ .eh_frame      0x0000000000102620      0x10c obj/gdt.o
+ .eh_frame      0x000000000010272c      0x100 obj/drivers/driver.o
+                                        0x12c (size before relaxing)
+ .eh_frame      0x000000000010282c      0x244 obj/hardwarecommunication/port.o
+                                        0x270 (size before relaxing)
+ .eh_frame      0x0000000000102a70      0x15c obj/hardwarecommunication/interrupts.o
+                                        0x19c (size before relaxing)
+ .eh_frame      0x0000000000102bcc      0x104 obj/drivers/keyboard.o
+                                        0x144 (size before relaxing)
+ .eh_frame      0x0000000000102cd0      0x14c obj/drivers/mouse.o
+                                        0x18c (size before relaxing)
+ .eh_frame      0x0000000000102e1c      0x120 obj/kernel.o
+                                        0x160 (size before relaxing)
+
+.iplt           0x0000000000102f40        0x0
+ .iplt          0x0000000000102f40        0x0 obj/loader.o
+
+.rel.dyn        0x0000000000102f3c        0x0
+ .rel.got       0x0000000000102f3c        0x0 obj/loader.o
+ .rel.iplt      0x0000000000102f3c        0x0 obj/loader.o
+ .rel.text      0x0000000000102f3c        0x0 obj/loader.o
+ .rel.data.rel.ro._ZTV14MouseToConsole
+                0x0000000000102f3c        0x0 obj/loader.o
+ .rel.data.rel.ro._ZTV25PrintfKeybardEventHandler
+                0x0000000000102f3c        0x0 obj/loader.o
+
+.data           0x0000000000102f3c        0x8
+                0x0000000000102f3c                start_ctors = .
+ *(.init_array)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+                0x0000000000102f3c                end_ctors = .
+ *(.data)
+ .data          0x0000000000102f3c        0x0 obj/loader.o
+ .data          0x0000000000102f3c        0x0 obj/gdt.o
+ .data          0x0000000000102f3c        0x0 obj/drivers/driver.o
+ .data          0x0000000000102f3c        0x0 obj/hardwarecommunication/port.o
+ .data          0x0000000000102f3c        0x1 obj/hardwarecommunication/interruptstubs.o
+ .data          0x0000000000102f3d        0x0 obj/hardwarecommunication/interrupts.o
+ .data          0x0000000000102f3d        0x0 obj/drivers/keyboard.o
+ .data          0x0000000000102f3d        0x0 obj/drivers/mouse.o
+ *fill*         0x0000000000102f3d        0x3 
+ .data          0x0000000000102f40        0x4 obj/kernel.o
+
+.got            0x0000000000102f44        0x0
+ .got           0x0000000000102f44        0x0 obj/loader.o
+
+.got.plt        0x0000000000102f44        0xc
+ .got.plt       0x0000000000102f44        0xc obj/loader.o
+                0x0000000000102f44                _GLOBAL_OFFSET_TABLE_
+
+.igot.plt       0x0000000000102f50        0x0
+ .igot.plt      0x0000000000102f50        0x0 obj/loader.o
+
+.data.rel.ro.local._ZTVN4myos7drivers6DriverE
+                0x0000000000102f50       0x14
+ .data.rel.ro.local._ZTVN4myos7drivers6DriverE
+                0x0000000000102f50       0x14 obj/drivers/driver.o
+                0x0000000000102f50                vtable for myos::drivers::Driver
+
+.data.rel.ro.local._ZTVN4myos21hardwarecommunication9Port32bitE
+                0x0000000000102f64       0x10
+ .data.rel.ro.local._ZTVN4myos21hardwarecommunication9Port32bitE
+                0x0000000000102f64       0x10 obj/hardwarecommunication/port.o
+                0x0000000000102f64                vtable for myos::hardwarecommunication::Port32bit
+
+.data.rel.ro.local._ZTVN4myos21hardwarecommunication9Port16bitE
+                0x0000000000102f74       0x10
+ .data.rel.ro.local._ZTVN4myos21hardwarecommunication9Port16bitE
+                0x0000000000102f74       0x10 obj/hardwarecommunication/port.o
+                0x0000000000102f74                vtable for myos::hardwarecommunication::Port16bit
+
+.data.rel.ro.local._ZTVN4myos21hardwarecommunication12Port8bitSlowE
+                0x0000000000102f84       0x10
+ .data.rel.ro.local._ZTVN4myos21hardwarecommunication12Port8bitSlowE
+                0x0000000000102f84       0x10 obj/hardwarecommunication/port.o
+                0x0000000000102f84                vtable for myos::hardwarecommunication::Port8bitSlow
+
+.data.rel.ro.local._ZTVN4myos21hardwarecommunication8Port8bitE
+                0x0000000000102f94       0x10
+ .data.rel.ro.local._ZTVN4myos21hardwarecommunication8Port8bitE
+                0x0000000000102f94       0x10 obj/hardwarecommunication/port.o
+                0x0000000000102f94                vtable for myos::hardwarecommunication::Port8bit
+
+.data.rel.ro.local._ZTVN4myos21hardwarecommunication16InterruptHandlerE
+                0x0000000000102fa4        0xc
+ .data.rel.ro.local._ZTVN4myos21hardwarecommunication16InterruptHandlerE
+                0x0000000000102fa4        0xc obj/hardwarecommunication/interrupts.o
+                0x0000000000102fa4                vtable for myos::hardwarecommunication::InterruptHandler
+
+.data.rel.ro._ZTVN4myos7drivers14KeyboardDriverE
+                0x0000000000102fb0       0x24
+ .data.rel.ro._ZTVN4myos7drivers14KeyboardDriverE
+                0x0000000000102fb0       0x24 obj/drivers/keyboard.o
+                0x0000000000102fb0                vtable for myos::drivers::KeyboardDriver
+
+.data.rel.ro.local._ZTVN4myos7drivers20KeyboardEventHandlerE
+                0x0000000000102fd4       0x10
+ .data.rel.ro.local._ZTVN4myos7drivers20KeyboardEventHandlerE
+                0x0000000000102fd4       0x10 obj/drivers/keyboard.o
+                0x0000000000102fd4                vtable for myos::drivers::KeyboardEventHandler
+
+.data.rel.ro._ZTVN4myos7drivers11MouseDriverE
+                0x0000000000102fe4       0x24
+ .data.rel.ro._ZTVN4myos7drivers11MouseDriverE
+                0x0000000000102fe4       0x24 obj/drivers/mouse.o
+                0x0000000000102fe4                vtable for myos::drivers::MouseDriver
+
+.data.rel.ro.local._ZTVN4myos7drivers17MouseEventHandlerE
+                0x0000000000103008       0x18
+ .data.rel.ro.local._ZTVN4myos7drivers17MouseEventHandlerE
+                0x0000000000103008       0x18 obj/drivers/mouse.o
+                0x0000000000103008                vtable for myos::drivers::MouseEventHandler
+
+.data._ZZN14MouseToConsole11OnMouseMoveEiiE11VideoMemory
+                0x0000000000103020        0x4
+ .data._ZZN14MouseToConsole11OnMouseMoveEiiE11VideoMemory
+                0x0000000000103020        0x4 obj/kernel.o
+                0x0000000000103020                MouseToConsole::OnMouseMove(int, int)::VideoMemory
+
+.data.rel.ro._ZTV14MouseToConsole
+                0x0000000000103024       0x18
+ .data.rel.ro._ZTV14MouseToConsole
+                0x0000000000103024       0x18 obj/kernel.o
+                0x0000000000103024                vtable for MouseToConsole
+
+.data.rel.ro._ZTV25PrintfKeybardEventHandler
+                0x000000000010303c       0x10
+ .data.rel.ro._ZTV25PrintfKeybardEventHandler
+                0x000000000010303c       0x10 obj/kernel.o
+                0x000000000010303c                vtable for PrintfKeybardEventHandler
+
+.bss            0x0000000000103060   0x200806
+ *(.bss)
+ .bss           0x0000000000103060   0x200000 obj/loader.o
+ .bss           0x0000000000303060        0x0 obj/gdt.o
+ .bss           0x0000000000303060        0x0 obj/drivers/driver.o
+ .bss           0x0000000000303060        0x0 obj/hardwarecommunication/port.o
+ .bss           0x0000000000303060        0x0 obj/hardwarecommunication/interruptstubs.o
+ .bss           0x0000000000303060      0x804 obj/hardwarecommunication/interrupts.o
+                0x0000000000303060                myos::hardwarecommunication::InterruptManager::interruptDescriptorTable
+                0x0000000000303860                myos::hardwarecommunication::InterruptManager::ActiveInterruptManager
+ .bss           0x0000000000303864        0x0 obj/drivers/keyboard.o
+ .bss           0x0000000000303864        0x0 obj/drivers/mouse.o
+ .bss           0x0000000000303864        0x2 obj/kernel.o
+
+/DISCARD/
+ *(.fini_array*)
+ *(.comment)
+LOAD obj/loader.o
+LOAD obj/gdt.o
+LOAD obj/drivers/driver.o
+LOAD obj/hardwarecommunication/port.o
+LOAD obj/hardwarecommunication/interruptstubs.o
+LOAD obj/hardwarecommunication/interrupts.o
+LOAD obj/drivers/keyboard.o
+LOAD obj/drivers/mouse.o
+LOAD obj/kernel.o
+OUTPUT(mykernel.bin elf32-i386)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/gdt.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/drivers/driver.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/hardwarecommunication/port.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/hardwarecommunication/interrupts.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/drivers/keyboard.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/drivers/mouse.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 obj/kernel.o

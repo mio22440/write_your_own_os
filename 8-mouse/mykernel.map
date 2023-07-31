@@ -1,0 +1,271 @@
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 gdt.o
+ .comment       0x0000000000000000       0x2a gdt.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0x8 port.o
+ .group         0x0000000000000000        0x8 port.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 port.o
+ .comment       0x0000000000000000       0x2a port.o
+ .group         0x0000000000000000        0xc interrupts.o
+ .group         0x0000000000000000        0x8 interrupts.o
+ .group         0x0000000000000000        0x8 interrupts.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 interrupts.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 interrupts.o
+ .comment       0x0000000000000000       0x2a interrupts.o
+ .group         0x0000000000000000        0xc keyboard.o
+ .group         0x0000000000000000        0x8 keyboard.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 keyboard.o
+ .comment       0x0000000000000000       0x2a keyboard.o
+ .group         0x0000000000000000        0xc mouse.o
+ .group         0x0000000000000000        0x8 mouse.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 mouse.o
+ .comment       0x0000000000000000       0x2a mouse.o
+ .group         0x0000000000000000        0x8 kernel.o
+ .group         0x0000000000000000        0x8 kernel.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 kernel.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 kernel.o
+ .comment       0x0000000000000000       0x2a kernel.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000100000                . = 0x100000
+
+.text           0x0000000000100000     0x164f
+ *(.multiboot)
+ .multiboot     0x0000000000100000        0xc loader.o
+ *(.text*)
+ .text          0x000000000010000c       0x15 loader.o
+                0x000000000010000c                loader
+ *fill*         0x0000000000100021        0x1 
+ .text          0x0000000000100022      0x292 gdt.o
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000b8                GlobalDescriptorTable::DataSegmentSelector()
+                0x00000000001000cc                GlobalDescriptorTable::CodeSegmentSelector()
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001001bc                GlobalDescriptorTable::SegmentDescriptor::Base()
+                0x0000000000100232                GlobalDescriptorTable::SegmentDescriptor::Limit()
+ .text.__x86.get_pc_thunk.ax
+                0x00000000001002b4        0x4 gdt.o
+                0x00000000001002b4                __x86.get_pc_thunk.ax
+ .text          0x00000000001002b8      0x2fe port.o
+                0x00000000001002b8                Port::Port(unsigned short)
+                0x00000000001002b8                Port::Port(unsigned short)
+                0x00000000001002dc                Port::~Port()
+                0x00000000001002dc                Port::~Port()
+                0x00000000001002ec                Port8bit::Port8bit(unsigned short)
+                0x00000000001002ec                Port8bit::Port8bit(unsigned short)
+                0x0000000000100336                Port8bit::~Port8bit()
+                0x0000000000100336                Port8bit::~Port8bit()
+                0x0000000000100360                Port8bit::Write(unsigned char)
+                0x0000000000100386                Port8bit::Read()
+                0x00000000001003aa                Port8bitSlow::Port8bitSlow(unsigned short)
+                0x00000000001003aa                Port8bitSlow::Port8bitSlow(unsigned short)
+                0x00000000001003f0                Port8bitSlow::~Port8bitSlow()
+                0x00000000001003f0                Port8bitSlow::~Port8bitSlow()
+                0x0000000000100418                Port8bitSlow::Write(unsigned char)
+                0x0000000000100442                Port16bit::Port16bit(unsigned short)
+                0x0000000000100442                Port16bit::Port16bit(unsigned short)
+                0x000000000010048c                Port16bit::~Port16bit()
+                0x000000000010048c                Port16bit::~Port16bit()
+                0x00000000001004b6                Port16bit::Write(unsigned short)
+                0x00000000001004de                Port16bit::Read()
+                0x0000000000100504                Port32bit::Port32bit(unsigned short)
+                0x0000000000100504                Port32bit::Port32bit(unsigned short)
+                0x000000000010054e                Port32bit::~Port32bit()
+                0x000000000010054e                Port32bit::~Port32bit()
+                0x0000000000100578                Port32bit::Write(unsigned int)
+                0x0000000000100594                Port32bit::Read()
+ .text.__x86.get_pc_thunk.bx
+                0x00000000001005b6        0x4 port.o
+                0x00000000001005b6                __x86.get_pc_thunk.bx
+ .text          0x00000000001005ba       0x38 interruptstubs.o
+                0x00000000001005ba                InterruptManager::HandleInterruptRequest0x00()
+                0x00000000001005c3                InterruptManager::HandleInterruptRequest0x01()
+                0x00000000001005cc                InterruptManager::HandleInterruptRequest0x0c()
+                0x00000000001005f1                InterruptManager::IgnoreInterruptRequest()
+ .text          0x00000000001005f2      0x55e interrupts.o
+                0x00000000001005f2                InterruptHandler::InterruptHandler(unsigned char, InterruptManager*)
+                0x00000000001005f2                InterruptHandler::InterruptHandler(unsigned char, InterruptManager*)
+                0x0000000000100636                InterruptHandler::~InterruptHandler()
+                0x0000000000100636                InterruptHandler::~InterruptHandler()
+                0x0000000000100680                InterruptHandler::HandleInterrupt(unsigned int)
+                0x0000000000100692                InterruptManager::SetInterruptDescriptorTableEntry(unsigned char, unsigned short, void (*)(), unsigned char, unsigned char)
+                0x000000000010072c                InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x000000000010072c                InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x0000000000100954                InterruptManager::~InterruptManager()
+                0x0000000000100954                InterruptManager::~InterruptManager()
+                0x00000000001009bc                InterruptManager::Activate()
+                0x00000000001009fa                InterruptManager::Deactivate()
+                0x0000000000100a20                InterruptManager::handleInterrupt(unsigned char, unsigned int)
+                0x0000000000100a62                InterruptManager::DoHandleInterrupt(unsigned char, unsigned int)
+ .text          0x0000000000100b50      0x243 keyboard.o
+                0x0000000000100b50                KeyboardDriver::KeyboardDriver(InterruptManager*)
+                0x0000000000100b50                KeyboardDriver::KeyboardDriver(InterruptManager*)
+                0x0000000000100c6c                KeyboardDriver::~KeyboardDriver()
+                0x0000000000100c6c                KeyboardDriver::~KeyboardDriver()
+                0x0000000000100cc2                KeyboardDriver::HandleInterrupt(unsigned int)
+ *fill*         0x0000000000100d93        0x1 
+ .text          0x0000000000100d94      0x5c3 mouse.o
+                0x0000000000100d94                MouseDriver::MouseDriver(InterruptManager*)
+                0x0000000000100d94                MouseDriver::MouseDriver(InterruptManager*)
+                0x0000000000100f00                MouseDriver::~MouseDriver()
+                0x0000000000100f00                MouseDriver::~MouseDriver()
+                0x0000000000100f56                MouseDriver::HandleInterrupt(unsigned int)
+ .text          0x0000000000101357      0x2ad kernel.o
+                0x0000000000101357                printf(char*)
+                0x000000000010154a                callConstructors
+                0x0000000000101584                kernelMain
+ *(.rodata)
+ .rodata        0x0000000000101604       0x2a interrupts.o
+ .rodata        0x000000000010162e       0x21 keyboard.o
+
+.eh_frame       0x0000000000101650      0x5f8
+ .eh_frame      0x0000000000101650      0x10c gdt.o
+ .eh_frame      0x000000000010175c      0x244 port.o
+                                        0x270 (size before relaxing)
+ .eh_frame      0x00000000001019a0      0x15c interrupts.o
+                                        0x19c (size before relaxing)
+ .eh_frame      0x0000000000101afc       0x6c keyboard.o
+                                         0x98 (size before relaxing)
+ .eh_frame      0x0000000000101b68       0x74 mouse.o
+                                         0xa0 (size before relaxing)
+ .eh_frame      0x0000000000101bdc       0x6c kernel.o
+                                         0xac (size before relaxing)
+
+.iplt           0x0000000000101c48        0x0
+ .iplt          0x0000000000101c48        0x0 loader.o
+
+.rel.dyn        0x0000000000101c48        0x0
+ .rel.got       0x0000000000101c48        0x0 loader.o
+ .rel.iplt      0x0000000000101c48        0x0 loader.o
+ .rel.text      0x0000000000101c48        0x0 loader.o
+
+.data           0x0000000000101c48       0x10
+                0x0000000000101c48                start_ctors = .
+ *(.init_array)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+                0x0000000000101c48                end_ctors = .
+ *(.data)
+ .data          0x0000000000101c48        0x0 loader.o
+ .data          0x0000000000101c48        0x0 gdt.o
+ .data          0x0000000000101c48        0x0 port.o
+ .data          0x0000000000101c48        0x1 interruptstubs.o
+ .data          0x0000000000101c49        0x0 interrupts.o
+ .data          0x0000000000101c49        0x0 keyboard.o
+ *fill*         0x0000000000101c49        0x3 
+ .data          0x0000000000101c4c        0x8 mouse.o
+ .data          0x0000000000101c54        0x4 kernel.o
+
+.got            0x0000000000101c58        0x0
+ .got           0x0000000000101c58        0x0 loader.o
+
+.got.plt        0x0000000000101c58        0xc
+ .got.plt       0x0000000000101c58        0xc loader.o
+                0x0000000000101c58                _GLOBAL_OFFSET_TABLE_
+
+.igot.plt       0x0000000000101c64        0x0
+ .igot.plt      0x0000000000101c64        0x0 loader.o
+
+.data.rel.ro.local._ZTV9Port32bit
+                0x0000000000101c64       0x10
+ .data.rel.ro.local._ZTV9Port32bit
+                0x0000000000101c64       0x10 port.o
+                0x0000000000101c64                vtable for Port32bit
+
+.data.rel.ro.local._ZTV9Port16bit
+                0x0000000000101c74       0x10
+ .data.rel.ro.local._ZTV9Port16bit
+                0x0000000000101c74       0x10 port.o
+                0x0000000000101c74                vtable for Port16bit
+
+.data.rel.ro.local._ZTV12Port8bitSlow
+                0x0000000000101c84       0x10
+ .data.rel.ro.local._ZTV12Port8bitSlow
+                0x0000000000101c84       0x10 port.o
+                0x0000000000101c84                vtable for Port8bitSlow
+
+.data.rel.ro.local._ZTV8Port8bit
+                0x0000000000101c94       0x10
+ .data.rel.ro.local._ZTV8Port8bit
+                0x0000000000101c94       0x10 port.o
+                0x0000000000101c94                vtable for Port8bit
+
+.data.rel.ro.local._ZTV16InterruptHandler
+                0x0000000000101ca4        0xc
+ .data.rel.ro.local._ZTV16InterruptHandler
+                0x0000000000101ca4        0xc interrupts.o
+                0x0000000000101ca4                vtable for InterruptHandler
+
+.data.rel.ro.local._ZTV14KeyboardDriver
+                0x0000000000101cb0        0xc
+ .data.rel.ro.local._ZTV14KeyboardDriver
+                0x0000000000101cb0        0xc keyboard.o
+                0x0000000000101cb0                vtable for KeyboardDriver
+
+.data.rel.ro.local._ZTV11MouseDriver
+                0x0000000000101cbc        0xc
+ .data.rel.ro.local._ZTV11MouseDriver
+                0x0000000000101cbc        0xc mouse.o
+                0x0000000000101cbc                vtable for MouseDriver
+
+.bss            0x0000000000101ce0   0x200806
+ *(.bss)
+ .bss           0x0000000000101ce0   0x200000 loader.o
+ .bss           0x0000000000301ce0        0x0 gdt.o
+ .bss           0x0000000000301ce0        0x0 port.o
+ .bss           0x0000000000301ce0        0x0 interruptstubs.o
+ .bss           0x0000000000301ce0      0x804 interrupts.o
+                0x0000000000301ce0                InterruptManager::interruptDescriptorTable
+                0x00000000003024e0                InterruptManager::ActiveInterruptManager
+ .bss           0x00000000003024e4        0x0 keyboard.o
+ .bss           0x00000000003024e4        0x0 mouse.o
+ .bss           0x00000000003024e4        0x2 kernel.o
+
+/DISCARD/
+ *(.fini_array*)
+ *(.comment)
+LOAD loader.o
+LOAD gdt.o
+LOAD port.o
+LOAD interruptstubs.o
+LOAD interrupts.o
+LOAD keyboard.o
+LOAD mouse.o
+LOAD kernel.o
+OUTPUT(mykernel.bin elf32-i386)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 gdt.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 port.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 interrupts.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 keyboard.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 mouse.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 kernel.o

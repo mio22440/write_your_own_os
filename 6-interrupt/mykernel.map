@@ -1,0 +1,207 @@
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 gdt.o
+ .comment       0x0000000000000000       0x2a gdt.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0xc port.o
+ .group         0x0000000000000000        0x8 port.o
+ .group         0x0000000000000000        0x8 port.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 port.o
+ .comment       0x0000000000000000       0x2a port.o
+ .group         0x0000000000000000        0x8 interrupts.o
+ .group         0x0000000000000000        0x8 interrupts.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 interrupts.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 interrupts.o
+ .comment       0x0000000000000000       0x2a interrupts.o
+ .group         0x0000000000000000        0x8 kernel.o
+ .group         0x0000000000000000        0x8 kernel.o
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 kernel.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 kernel.o
+ .comment       0x0000000000000000       0x2a kernel.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000100000                . = 0x100000
+
+.text           0x0000000000100000      0xbc8
+ *(.multiboot)
+ .multiboot     0x0000000000100000        0xc loader.o
+ *(.text*)
+ .text          0x000000000010000c       0x15 loader.o
+                0x000000000010000c                loader
+ *fill*         0x0000000000100021        0x1 
+ .text          0x0000000000100022      0x2be gdt.o
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x0000000000100022                GlobalDescriptorTable::GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000a8                GlobalDescriptorTable::~GlobalDescriptorTable()
+                0x00000000001000b8                GlobalDescriptorTable::DataSegmentSelector()
+                0x00000000001000cc                GlobalDescriptorTable::CodeSegmentSelector()
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001000e0                GlobalDescriptorTable::SegmentDescriptor::SegmentDescriptor(unsigned int, unsigned int, unsigned char)
+                0x00000000001001e8                GlobalDescriptorTable::SegmentDescriptor::Base()
+                0x000000000010025e                GlobalDescriptorTable::SegmentDescriptor::Limit()
+ .text.__x86.get_pc_thunk.ax
+                0x00000000001002e0        0x4 gdt.o
+                0x00000000001002e0                __x86.get_pc_thunk.ax
+ .text          0x00000000001002e4      0x2fe port.o
+                0x00000000001002e4                Port::Port(unsigned short)
+                0x00000000001002e4                Port::Port(unsigned short)
+                0x0000000000100308                Port::~Port()
+                0x0000000000100308                Port::~Port()
+                0x0000000000100318                Port8bit::Port8bit(unsigned short)
+                0x0000000000100318                Port8bit::Port8bit(unsigned short)
+                0x0000000000100362                Port8bit::~Port8bit()
+                0x0000000000100362                Port8bit::~Port8bit()
+                0x000000000010038c                Port8bit::Write(unsigned char)
+                0x00000000001003b2                Port8bit::Read()
+                0x00000000001003d6                Port8bitSlow::Port8bitSlow(unsigned short)
+                0x00000000001003d6                Port8bitSlow::Port8bitSlow(unsigned short)
+                0x000000000010041c                Port8bitSlow::~Port8bitSlow()
+                0x000000000010041c                Port8bitSlow::~Port8bitSlow()
+                0x0000000000100444                Port8bitSlow::Write(unsigned char)
+                0x000000000010046e                Port16bit::Port16bit(unsigned short)
+                0x000000000010046e                Port16bit::Port16bit(unsigned short)
+                0x00000000001004b8                Port16bit::~Port16bit()
+                0x00000000001004b8                Port16bit::~Port16bit()
+                0x00000000001004e2                Port16bit::Write(unsigned short)
+                0x000000000010050a                Port16bit::Read()
+                0x0000000000100530                Port32bit::Port32bit(unsigned short)
+                0x0000000000100530                Port32bit::Port32bit(unsigned short)
+                0x000000000010057a                Port32bit::~Port32bit()
+                0x000000000010057a                Port32bit::~Port32bit()
+                0x00000000001005a4                Port32bit::Write(unsigned int)
+                0x00000000001005c0                Port32bit::Read()
+ .text.__x86.get_pc_thunk.bx
+                0x00000000001005e2        0x4 port.o
+                0x00000000001005e2                __x86.get_pc_thunk.bx
+ .text          0x00000000001005e6       0x2f interruptstubs.o
+                0x00000000001005e6                InterruptManager::HandleInterruptRequest0x00()
+                0x00000000001005ef                InterruptManager::HandleInterruptRequest0x01()
+                0x0000000000100614                InterruptManager::IgnoreInterruptRequest()
+ *fill*         0x0000000000100615        0x1 
+ .text          0x0000000000100616      0x317 interrupts.o
+                0x0000000000100616                InterruptManager::SetInterruptDescriptorTableEntry(unsigned char, unsigned short, void (*)(), unsigned char, unsigned char)
+                0x00000000001006b0                InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x00000000001006b0                InterruptManager::InterruptManager(GlobalDescriptorTable*)
+                0x000000000010088a                InterruptManager::~InterruptManager()
+                0x000000000010088a                InterruptManager::~InterruptManager()
+                0x00000000001008e8                InterruptManager::Activate()
+                0x00000000001008fa                InterruptManager::handleInterrupt(unsigned char, unsigned int)
+ .text          0x000000000010092d      0x272 kernel.o
+                0x000000000010092d                printf(char*)
+                0x0000000000100b20                callConstructors
+                0x0000000000100b5a                kernelMain
+ *(.rodata)
+ .rodata        0x0000000000100b9f       0x1f gdt.o
+ .rodata        0x0000000000100bbe        0xa interrupts.o
+
+.eh_frame       0x0000000000100bc8      0x478
+ .eh_frame      0x0000000000100bc8      0x110 gdt.o
+ .eh_frame      0x0000000000100cd8      0x244 port.o
+                                        0x270 (size before relaxing)
+ .eh_frame      0x0000000000100f1c       0xb8 interrupts.o
+                                         0xf8 (size before relaxing)
+ .eh_frame      0x0000000000100fd4       0x6c kernel.o
+                                         0xac (size before relaxing)
+
+.iplt           0x0000000000101040        0x0
+ .iplt          0x0000000000101040        0x0 loader.o
+
+.rel.dyn        0x0000000000101040        0x0
+ .rel.got       0x0000000000101040        0x0 loader.o
+ .rel.iplt      0x0000000000101040        0x0 loader.o
+ .rel.text      0x0000000000101040        0x0 loader.o
+
+.data           0x0000000000101040        0x8
+                0x0000000000101040                start_ctors = .
+ *(.init_array)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+                0x0000000000101040                end_ctors = .
+ *(.data)
+ .data          0x0000000000101040        0x0 loader.o
+ .data          0x0000000000101040        0x0 gdt.o
+ .data          0x0000000000101040        0x0 port.o
+ .data          0x0000000000101040        0x1 interruptstubs.o
+ .data          0x0000000000101041        0x0 interrupts.o
+ *fill*         0x0000000000101041        0x3 
+ .data          0x0000000000101044        0x4 kernel.o
+
+.got            0x0000000000101048        0x0
+ .got           0x0000000000101048        0x0 loader.o
+
+.got.plt        0x0000000000101048        0xc
+ .got.plt       0x0000000000101048        0xc loader.o
+                0x0000000000101048                _GLOBAL_OFFSET_TABLE_
+
+.igot.plt       0x0000000000101054        0x0
+ .igot.plt      0x0000000000101054        0x0 loader.o
+
+.data.rel.ro.local._ZTV9Port32bit
+                0x0000000000101054       0x10
+ .data.rel.ro.local._ZTV9Port32bit
+                0x0000000000101054       0x10 port.o
+                0x0000000000101054                vtable for Port32bit
+
+.data.rel.ro.local._ZTV9Port16bit
+                0x0000000000101064       0x10
+ .data.rel.ro.local._ZTV9Port16bit
+                0x0000000000101064       0x10 port.o
+                0x0000000000101064                vtable for Port16bit
+
+.data.rel.ro.local._ZTV12Port8bitSlow
+                0x0000000000101074       0x10
+ .data.rel.ro.local._ZTV12Port8bitSlow
+                0x0000000000101074       0x10 port.o
+                0x0000000000101074                vtable for Port8bitSlow
+
+.data.rel.ro.local._ZTV8Port8bit
+                0x0000000000101084       0x10
+ .data.rel.ro.local._ZTV8Port8bit
+                0x0000000000101084       0x10 port.o
+                0x0000000000101084                vtable for Port8bit
+
+.bss            0x00000000001010a0   0x200802
+ *(.bss)
+ .bss           0x00000000001010a0   0x200000 loader.o
+ .bss           0x00000000003010a0        0x0 gdt.o
+ .bss           0x00000000003010a0        0x0 port.o
+ .bss           0x00000000003010a0        0x0 interruptstubs.o
+ .bss           0x00000000003010a0      0x800 interrupts.o
+                0x00000000003010a0                InterruptManager::interruptDescriptorTable
+ .bss           0x00000000003018a0        0x2 kernel.o
+
+/DISCARD/
+ *(.fini_array*)
+ *(.comment)
+LOAD loader.o
+LOAD gdt.o
+LOAD port.o
+LOAD interruptstubs.o
+LOAD interrupts.o
+LOAD kernel.o
+OUTPUT(mykernel.bin elf32-i386)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 gdt.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 port.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 interrupts.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 kernel.o
